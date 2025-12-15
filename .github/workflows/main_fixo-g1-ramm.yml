@@ -60,5 +60,3 @@ jobs:
           app-name: 'fixo-g1-ramm'
           slot-name: 'Production'
           package: .
-
-
