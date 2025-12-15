@@ -30,7 +30,9 @@ jobs:
 
       - name: Run composer install if composer.json exists
         if: steps.check_files.outputs.files_exists == 'true'
-        run: composer validate --no-check-publish && composer install --prefer-dist --no-progress
+        run: |
+          composer validate --no-check-publish
+          composer install --prefer-dist --no-progress
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -48,15 +50,20 @@ jobs:
         with:
           name: php-app
 
-      - name: Deploy to Azure Web App
-        uses: azure/webapps-deploy@v3
+      - name: Azure Login
+        uses: azure/login@v1
         with:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_8B993334F0B8430E85087BB36C2CF597 }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_89860994246543ADBBECC6ADB0460F8D }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_DB98162E5FEB44EA995CBC16084812D8 }}
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
           app-name: 'fixo-g1-ramm'
           slot-name: 'Production'
           package: .
+
 
 
 
