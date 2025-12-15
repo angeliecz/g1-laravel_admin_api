@@ -56,7 +56,7 @@ jobs:
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_DB98162E5FEB44EA995CBC16084812D8 }}
           app-name: 'fixo-g1-ramm'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FIXO_G1_RAMM }}
           package: .
+
 
 
