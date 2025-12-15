@@ -23,7 +23,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.4'
+          php-version: '8.2'
       - name: Check if composer.json exists
         id: check_files
         uses: andstor/file-existence-action@v1
@@ -60,3 +60,4 @@ jobs:
           app-name: 'fixo-g1-ramm'
           slot-name: 'Production'
           package: .
+
