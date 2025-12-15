@@ -51,8 +51,12 @@ jobs:
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_8B993334F0B8430E85087BB36C2CF597 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_89860994246543ADBBECC6ADB0460F8D }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_DB98162E5FEB44EA995CBC16084812D8 }}
           app-name: 'fixo-g1-ramm'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FIXO_G1_RAMM }}
           package: .
+
 
